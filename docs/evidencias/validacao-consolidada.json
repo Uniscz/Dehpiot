@@ -1,0 +1,34 @@
+{
+  "apk": "Copiloto-0.1.1.apk",
+  "sha256": "5d5b40c95f015595dccc8b233237a77d4e2ba8dd66d14de0afcdf4edcf7f53fc",
+  "size_bytes": 106490981,
+  "signature": {
+    "verified": true,
+    "v2": true,
+    "signers": 1,
+    "errors": []
+  },
+  "abis": [
+    "arm64-v8a",
+    "armeabi-v7a",
+    "x86",
+    "x86_64"
+  ],
+  "ocr_asset_count": 21,
+  "core_tests": {
+    "tests": 29,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "evidence": "XML inspected during this session; original build workspace was subsequently pruned"
+  },
+  "lint": {
+    "errors": 0,
+    "warnings": 7
+  },
+  "android_tests": {
+    "compiled": 10,
+    "executed_in_this_recovery": false,
+    "reason": "Emulator package service unavailable before installation"
+  }
+}
