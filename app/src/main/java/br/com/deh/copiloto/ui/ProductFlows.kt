@@ -1,4 +1,4 @@
-@file:OptIn(androidx.compose.material3.ExperimentalMaterial3Api::class, androidx.activity.ExperimentalActivityApi::class)
+@file:OptIn(androidx.compose.material3.ExperimentalMaterial3Api::class)
 package br.com.deh.copiloto.ui
 
 import android.net.Uri

@@ -1,4 +1,4 @@
-@file:OptIn(androidx.activity.ExperimentalActivityApi::class, androidx.compose.material3.ExperimentalMaterial3Api::class)
+@file:OptIn(androidx.compose.material3.ExperimentalMaterial3Api::class)
 package br.com.deh.copiloto.ui
 
 import androidx.activity.compose.PredictiveBackHandler
@@ -179,7 +179,8 @@ fun elapsed(minutes: Double) = "${minutes.toInt() / 60}h ${minutes.toInt() % 60}
                 LinearProgressIndicator(progress = { animated }, modifier = Modifier.fillMaxWidth().height(7.dp), color = Lime, trackColor = Ink)
                 Text(if (progress.remaining == 0.0) "Meta atingida" else "Faltam R$ ${fmt(progress.remaining)}", fontSize = 22.sp, fontWeight = FontWeight.SemiBold)
                 Note("R$ ${fmt(progress.current)} de R$ ${fmt(s.dailyGoal)}")
-                Note(when { progress.remaining == 0.0 -> "Você pode encerrar ou definir uma nova meta."; progress.minutesRemaining == null -> "A previsão aparece com pelo menos 15 minutos e saldo positivo."; progress.minutesRemaining > 1440 -> "No ritmo atual, a meta exigiria mais de 24 horas. Reavalie sua meta."; else -> "No ritmo registrado: aproximadamente ${clock(now + (progress.minutesRemaining * 60000).toLong())}. Estimativa, sem garantia." })
+                val minutesRemaining = progress.minutesRemaining
+                Note(when { progress.remaining == 0.0 -> "Você pode encerrar ou definir uma nova meta."; minutesRemaining == null -> "A previsão aparece com pelo menos 15 minutos e saldo positivo."; minutesRemaining > 1440 -> "No ritmo atual, a meta exigiria mais de 24 horas. Reavalie sua meta."; else -> "No ritmo registrado: aproximadamente ${clock(now + (minutesRemaining * 60000).toLong())}. Estimativa, sem garantia." })
                 progress.requiredHourly?.let { Note("Para o horário escolhido: R$ ${fmt(it)}/h daqui em diante", Amber) }
             }
         }
